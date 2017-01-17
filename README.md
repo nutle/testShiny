@@ -1,0 +1,2 @@
+# testShiny
+Shiny aplinkos testavimas
