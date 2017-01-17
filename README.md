@@ -1,2 +1,2 @@
-# testShiny
-Shiny aplinkos testavimas
+Tekstukas apie info.
+
