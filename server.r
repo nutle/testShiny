@@ -13,6 +13,9 @@ library(DMwR)
 library(HighDimOut)
 library(robustbase)
 library(SeleMix)
+library(httr)
+library(xml2)
+library(quantmod)
 #library(e1071)
 #library(reshape)
 
@@ -285,7 +288,25 @@ shinyServer(function(input, output, session) {
       temp$outlier[outlier[1:outliercount]] <- TRUE }
     temp[,1:4] <-round(temp[,1:4],4)
     temp
-    }, message = 'Working on it', value = 1)
+    }, message = 'Working on it', value = )
+  })
+  
+  
+  
+  quantmod::getFX(Currencies = 'EUR/USD', from = Sys.Date()-1, to = Sys.Date())
+  quantmod::getFX(Currencies = 'EUR/GBP', from = Sys.Date()-1, to = Sys.Date())
+  quantmod::getFX(Currencies = 'EUR/RUB', from = Sys.Date()-1, to = Sys.Date())
+  n1 <- data.frame(message = 'EUR/USD', status = as.numeric(get('EURUSD')[1]))
+  n2 <- data.frame(message = 'EUR/GBP', status = as.numeric(get('EURGBP')[1]))
+  n3 <- data.frame(message = 'EUR/RUB', status = as.numeric(get('EURRUB')[1]))
+  
+  messageData <- rbind(n1,n2,n3)
+  
+  output$messageMenu <- renderMenu({
+    nots <- apply(messageData, 1, function(row) {
+      messageItem(message = row[["message"]], from = as.character(row[["status"]]))
+    })
+    dropdownMenu(type = "messages", .list = nots)
   })
 
   ##################
