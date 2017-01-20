@@ -6,7 +6,7 @@ library(proxy)
 library(dbscan)
 library(mlbench)
 library(randomForest)
-library(IsolationForest)
+# library(IsolationForest)
 library(autoencoder)
 library(fclust)
 library(DMwR)
@@ -154,16 +154,16 @@ shinyServer(function(input, output, session) {
           outlier <- order(temp$distance, decreasing=T)[1:outliercount]
           temp$outlier <- FALSE
           temp$outlier[outlier[1:outliercount]] <- TRUE }
-    if (input$Model==7) {
-          tr<-IsolationTrees(selectedData$df[,1:2], rFactor=0)
-          as<-AnomalyScore(selectedData$df[,1:2],tr)
-          d <- as.data.frame(as$outF)
-          distance <- d[,1]
-          temp <- cbind(selectedData$df,distance)
-          temp$cluster <- 1
-          outlier <- order(temp$distance, decreasing=T)[1:outliercount]
-          temp$outlier <- FALSE
-          temp$outlier[outlier[1:outliercount]] <- TRUE }
+    # if (input$Model==7) {
+    #       tr<-IsolationTrees(selectedData$df[,1:2], rFactor=0)
+    #       as<-AnomalyScore(selectedData$df[,1:2],tr)
+    #       d <- as.data.frame(as$outF)
+    #       distance <- d[,1]
+    #       temp <- cbind(selectedData$df,distance)
+    #       temp$cluster <- 1
+    #       outlier <- order(temp$distance, decreasing=T)[1:outliercount]
+    #       temp$outlier <- FALSE
+    #       temp$outlier[outlier[1:outliercount]] <- TRUE }
     if (input$Model==8) {
           nl=3
           unit.type = "tanh"
