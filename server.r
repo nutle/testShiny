@@ -292,6 +292,8 @@ shinyServer(function(input, output, session) {
   })
   
   
+  library(httr)
+  set_config(config(ssl_verifypeer = 0L))
   
   quantmod::getFX(Currencies = 'EUR/USD', from = Sys.Date()-1, to = Sys.Date())
   quantmod::getFX(Currencies = 'EUR/GBP', from = Sys.Date()-1, to = Sys.Date())

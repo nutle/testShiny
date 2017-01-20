@@ -1,1 +1,1 @@
-.libPaths("library")
+.libPaths("C:/Users/Admin/Desktop/darbas/!Bankas/R/library")
