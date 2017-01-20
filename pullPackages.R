@@ -18,7 +18,7 @@
   } 
 }
 
-current.list <- c('DT', 'proxy','dbscan','mlbench','randomForest','IsolationForest','autoencoder',
+current.list <- c('DT', 'proxy','dbscan','mlbench','randomForest','autoencoder',
                   'fclust', 'DMwR', 'HighDimOut', 'robustbase', 'SeleMix', 'httr', 'xml2', 'quantmod',
                   'shinythemes', 'shinydashboard')
 
