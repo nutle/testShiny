@@ -5,7 +5,7 @@ library(shinydashboard)
 
 
 header <- dashboardHeader(title = "Pavadinimas",
-                          dropdownMenuOutput('messageMenu'),
+                          # dropdownMenuOutput('messageMenu'),
                           dropdownMenu(type = "notifications",
                                        notificationItem(
                                          text = "5 new users today",
